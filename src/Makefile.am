@@ -7,6 +7,7 @@ rtl_433_SOURCES      = baseband.c \
                        bitbuffer.c \
                        data.c \
                        fileformat.c \
+                       mqtt_pub.c \
                        optparse.c \
                        pulse_demod.c \
                        pulse_detect.c \

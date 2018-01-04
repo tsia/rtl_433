@@ -21,6 +21,7 @@ add_executable(rtl_433
 	bitbuffer.c
 	data.c
 	fileformat.c
+	mqtt_pub.c
 	optparse.c
 	pulse_demod.c
 	pulse_detect.c
