@@ -19,6 +19,7 @@
 add_executable(rtl_433
 	baseband.c
 	bitbuffer.c
+	convenience.c
 	data.c
 	fileformat.c
 	optparse.c
