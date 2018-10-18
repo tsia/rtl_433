@@ -121,6 +121,7 @@ add_executable(rtl_433
 	devices/wt450.c
 	devices/x10_rf.c
 	devices/x10_sec.c
+	devices/tx118sa.c
 )
 
 add_library(data data.c)
