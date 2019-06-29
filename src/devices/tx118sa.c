@@ -27,8 +27,8 @@ static int tx118sa_callback(r_device *decoder, bitbuffer_t *bitbuffer) {
 	}else{
 		bits = bitbuffer->bits_per_row[0];
 	}
-	fprintf(stdout, "-- number of rows: %d\n", bitbuffer->num_rows);
-	fprintf(stdout, "-- number of bits: %d\n", bits);
+	// fprintf(stdout, "-- number of rows: %d\n", bitbuffer->num_rows);
+	// fprintf(stdout, "-- number of bits: %d\n", bits);
 	if(bits > 0){
 		if(bitbuffer->num_rows >= 2){
 			b = bitbuffer->bb[1];
@@ -37,12 +37,12 @@ static int tx118sa_callback(r_device *decoder, bitbuffer_t *bitbuffer) {
 		}
 		if(bits != 25){
 			//invalid length
-			fprintf(stdout, "invalid length: %d\n", bits);
+			// fprintf(stdout, "invalid length: %d\n", bits);
 			return 0;
 		}
-		fprintf(stdout, "byte1: %d\n", b[0]);
-		fprintf(stdout, "byte2: %d\n", b[1]);
-		fprintf(stdout, "byte3: %d\n", b[2]);
+		// fprintf(stdout, "byte1: %d\n", b[0]);
+		// fprintf(stdout, "byte2: %d\n", b[1]);
+		// fprintf(stdout, "byte3: %d\n", b[2]);
 		if(bits == 24){
 			b[2] = b[2] >> 1;
 			b[2] += b[1] & 1;
@@ -68,7 +68,7 @@ static int tx118sa_callback(r_device *decoder, bitbuffer_t *bitbuffer) {
 		}
 	}
 
-	bitbuffer_print(bitbuffer);
+	// bitbuffer_print(bitbuffer);
 
 	data_t *data;
 	data = data_make("model",         "Model",              DATA_STRING, "TX118SA-4",
