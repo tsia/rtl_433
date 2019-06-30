@@ -134,6 +134,7 @@ add_executable(rtl_433
 	devices/x10_rf.c
 	devices/x10_sec.c
 	devices/tx118sa.c
+	devices/tx118sa_wall.c
 )
 
 if("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")

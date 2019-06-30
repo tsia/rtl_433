@@ -137,6 +137,7 @@
     DECL(ecowitt) \
     DECL(directv) \
     DECL(tx118sa) \
+    DECL(tx118sa_wall) \
     /* Add new decoders here. */
 
 #define DECL(name) extern r_device name;

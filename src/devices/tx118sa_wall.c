@@ -1,4 +1,4 @@
-/* TX118SA-4
+/* TX118SA-4 for Wall Switches
  *
  * Tested devices:
  * TX118SA-4
@@ -9,7 +9,7 @@
  */
 #include "decoder.h"
 
-static int tx118sa_callback(r_device *decoder, bitbuffer_t *bitbuffer) {
+static int tx118sa_wall_callback(r_device *decoder, bitbuffer_t *bitbuffer) {
 	bitbuffer_invert(bitbuffer);
 
 	unsigned bits = 0;
@@ -71,7 +71,7 @@ static int tx118sa_callback(r_device *decoder, bitbuffer_t *bitbuffer) {
 	// bitbuffer_print(bitbuffer);
 
 	data_t *data;
-	data = data_make("model",         "Model",              DATA_STRING, "TX118SA-4",
+	data = data_make("model",         "Model",              DATA_STRING, "TX118SA-4 Wallswitch",
 					 "id",            "Device ID",          DATA_INT, device_id,
 					 "channels",      "Channel",            DATA_ARRAY, data_array(channels_on, DATA_INT, channels_map),
                       NULL);
@@ -89,15 +89,15 @@ static char *output_fields[] = {
     NULL
 };
 
-r_device tx118sa = {
-	.name			= "TX118SA-4",
+r_device tx118sa_wall = {
+	.name			= "TX118SA-4 Wallswitch",
 	.modulation		= OOK_PULSE_PWM,
-	.short_width	= 436,
-	.long_width		= 1202,
-	.reset_limit	= 11764 * 1.2f,
-	.gap_limit		= 1299 * 1.5f,
-	.sync_width		= 0,
-	.decode_fn		= &tx118sa_callback,
+	.short_width	= 256,
+	.long_width		= 740,
+	.reset_limit	= 7782,
+	.gap_limit		= 740,
+	.tolerance		= 192,
+	.decode_fn		= &tx118sa_wall_callback,
 	.disabled		= 0,
 	.fields			= output_fields,
 };
