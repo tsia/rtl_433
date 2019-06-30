@@ -68,7 +68,7 @@ static int tx118sa_callback(r_device *decoder, bitbuffer_t *bitbuffer) {
 		}
 	}
 
-	// rbitbuffer_print(bitbuffer);
+	// bitbuffer_print(bitbuffer);
 
 	data_t *data;
 	data = data_make("model",         "Model",              DATA_STRING, "TX118SA-4",
@@ -92,12 +92,10 @@ static char *output_fields[] = {
 r_device tx118sa = {
 	.name			= "TX118SA-4",
 	.modulation		= OOK_PULSE_PWM,
-	.short_width	= 436, //296  284  296  300    308
-	.long_width		= 1202,//900  872  896  912    924
-	.reset_limit	= 11764 * 1.2f, //9284 8900 9092 9144   9456
-	.gap_limit		= 1299 * 1.5f, //912 868  892  900    932
-	//.tolerance  	= 240,  //404  240  240    244
-	.sync_width 	= 0, // No sync bit used
+	.short_width	= 436,
+	.long_width		= 1202,
+	.reset_limit	= 11764 * 1.2f,
+	.gap_limit		= 1299 * 1.5f,
 	.decode_fn		= &tx118sa_callback,
 	.disabled		= 0,
 	.fields			= output_fields,
